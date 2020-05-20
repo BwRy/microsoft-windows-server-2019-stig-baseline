@@ -33,10 +33,10 @@ this is a finding.
   tag 'cci': ["CCI-000366"]
   tag 'nist': ["CM-6 b", "Rev_4"]
 
-  uefi_boot = json( command: 'Confirm-SecureBootUEFI | ConvertTo-Json').params
+  uefi_boot = json( command: 'Confirm-SecureBootUEFI | ConvertTo-Json').params.to_s.downcase
     describe 'Confirm-Secure Boot UEFI is required to be enabled on System' do
      subject { uefi_boot }
-     it { should_not eq 'False' }
+     it { should_not eq 'false' }
     end
 end
 
