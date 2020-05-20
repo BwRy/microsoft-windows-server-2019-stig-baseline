@@ -61,7 +61,7 @@ programs\" to include only the following accounts or groups:
   tag 'cci': ["CCI-002235"]
   tag 'nist': ["AC-6 (10)", "Rev_4"]
 
-  os_type = command('Test-Path "$env:windir\explorer.exe"').stdout.strip
+  os_type = command('Test-Path "$env:windir\explorer.exe"').stdout.strip.downcase
 
   if os_type == 'false'
      describe 'This system is a Server Core Installation, and a manual check will need to be performed with command Secedit /Export /Areas User_Rights /cfg c:\\path\\filename.txt' do
